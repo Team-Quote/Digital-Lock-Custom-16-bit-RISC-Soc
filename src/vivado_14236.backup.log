@@ -1,0 +1,45 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Wed Apr  1 14:21:54 2026
+# Process ID         : 14236
+# Current directory  : C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent30772 C:\Users\jjnat\Vault 451\Vivado Project\Final Project\src\src.xpr
+# Log file           : C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src/vivado.log
+# Journal file       : C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src\vivado.jou
+# Running On         : JustinThinkPad
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 7 PRO 8840U w/ Radeon 780M Graphics  
+# CPU Frequency      : 3294 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 15748 MB
+# Swap memory        : 5905 MB
+# Total Virtual      : 21653 MB
+# Available Virtual  : 6746 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src/src.xpr}
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2024.2/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src/src.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.2/data/ip'.
+open_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:10 . Memory (MB): peak = 1251.590 ; gain = 115.148
+file mkdir C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src/src.srcs/sources_1/new
+file mkdir C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src/src.srcs/sources_1/new
+file mkdir C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src/src.srcs/sources_1/new
+file mkdir C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src/src.srcs/sources_1/new
+file mkdir C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src/src.srcs/sources_1/new
+file mkdir C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src/src.srcs/sources_1/new
+file mkdir {C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src/src.srcs/sources_1/new}
+close [ open {C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src/src.srcs/sources_1/new/SevenSegDisplay.v} w ]
+add_files {{C:/Users/jjnat/Vault 451/Vivado Project/Final Project/src/src.srcs/sources_1/new/SevenSegDisplay.v}}
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Apr  1 14:46:15 2026...
