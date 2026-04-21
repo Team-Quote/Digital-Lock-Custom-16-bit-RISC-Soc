@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../src.srcs/sources_1/new/cpu_core.v" \
+"../../../../src.srcs/sources_1/new/memory_mapped_input_output.v" \
+"../../../../src.srcs/sources_1/new/pixel_clock_gen.v" \
+"../../../../src.srcs/sources_1/new/sevenseg_driver.v" \
+"../../../../src.srcs/sources_1/new/vga_controller.v" \
+"../../../../src.srcs/sources_1/new/vga_status_display.v" \
+"../../../../src.srcs/sources_1/new/top_lock_soc.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
