@@ -1,0 +1,355 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Mon May  4 14:09:14 2026
+| Host         : JustinThinkPad running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file RISC_CPU_control_sets_placed.rpt
+| Design       : RISC_CPU
+| Device       : xc7a100t
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   277 |
+|    Minimum number of control sets                        |   277 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |     6 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   277 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     1 |
+| >= 16              |   275 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              46 |           19 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              36 |           11 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |            4384 |         1361 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------+---------------------------------------+-----------------------------------+------------------+----------------+--------------+
+|     Clock Signal     |             Enable Signal             |          Set/Reset Signal         | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------------+---------------------------------------+-----------------------------------+------------------+----------------+--------------+
+|  CLK100MHZ_IBUF_BUFG |                                       | u_cpu/u_data_ram/SR[0]            |                3 |              6 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG |                                       | u_sevenseg/refresh_ctr[0]_i_1_n_0 |                4 |             14 |         3.50 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[128][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG |                                       | u_cpu_ce/ctr[0]_i_1_n_0           |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/regs[2][15]_i_1_n_0             | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/regs                            | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/pc                              | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/regs[5][15]_i_1_n_0             | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/regs[4][15]_i_1_n_0             | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/regs[6][15]_i_1_n_0             | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/regs[3][15]_i_1_n_0             | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/regs[7][15]_i_1_n_0             | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[94][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_mmio/seg0[15]_i_1_n_0         | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_mmio/seg3[15]_i_1_n_0         | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_mmio/seg1[15]_i_1_n_0         | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_mmio/seg7[15]_i_1_n_0         | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_mmio/seg5[15]_i_1_n_0         | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_mmio/seg4[15]_i_1_n_0         | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_mmio/seg2[15]_i_1_n_0         | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_mmio/seg6[15]_i_1_n_0         | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram                  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[131][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[123][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[117][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[130][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[103][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[110][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |               10 |             16 |         1.60 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[106][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[115][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                9 |             16 |         1.78 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[100][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                9 |             16 |         1.78 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[111][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[11][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[127][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[14][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[104][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[107][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                9 |             16 |         1.78 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[105][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[10][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[116][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[114][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[118][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[113][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[125][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[122][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[109][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[112][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[101][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[108][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[119][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[129][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[120][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[121][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[124][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[126][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[12][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[102][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[134][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[155][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[169][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[16][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[13][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[140][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[143][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[15][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[166][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[137][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[135][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[8][15]_i_1_n_0   | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[150][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[139][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[144][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[132][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[156][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[165][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[145][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[153][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[151][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[152][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[161][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[138][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[159][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[163][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                2 |             16 |         8.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[160][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[162][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[147][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[164][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[157][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[167][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[154][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[168][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[148][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[141][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[146][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[142][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[136][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[149][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[158][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[133][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[182][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[170][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[17][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[187][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[193][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[176][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[191][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[188][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[186][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[194][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[1][15]_i_1_n_0   | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[200][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[172][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[183][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[201][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[171][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[175][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[178][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[202][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[177][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                2 |             16 |         8.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[18][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[180][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[174][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[181][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[192][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[179][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[173][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[195][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[196][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[197][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[185][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[190][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[184][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[198][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[199][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[19][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[189][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                2 |             16 |         8.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[204][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[232][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                9 |             16 |         1.78 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[219][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[215][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[22][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[220][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[231][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |               10 |             16 |         1.60 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[213][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[230][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[203][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[209][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[222][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[227][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[229][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[240][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[224][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[205][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[208][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[217][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[214][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |               10 |             16 |         1.60 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[226][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[212][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[228][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[236][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[241][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[20][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[216][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[239][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[242][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[207][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[244][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                2 |             16 |         8.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[246][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[206][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[235][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[245][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[225][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[247][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[233][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                9 |             16 |         1.78 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[223][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[210][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[238][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[23][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[21][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[211][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[248][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[249][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[221][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[234][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[218][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[237][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[243][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                2 |             16 |         8.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[254][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[39][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[35][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[29][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[25][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[42][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[251][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[250][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[44][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[46][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[31][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[28][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[43][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[47][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[48][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[51][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[55][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[36][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[33][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[34][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[49][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[52][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[24][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[41][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[53][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[30][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[54][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[26][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[32][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[37][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[56][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[38][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[2][15]_i_1_n_0   | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[40][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[4][15]_i_1_n_0   | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[255][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[252][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[45][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[50][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[253][15]_i_1_n_0 | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[27][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[3][15]_i_1_n_0   | u_cpu/u_data_ram/SR[0]            |                2 |             16 |         8.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[57][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[61][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[66][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[67][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[68][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[70][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[74][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[5][15]_i_1_n_0   | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[63][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[73][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[78][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[79][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[69][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[75][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[60][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[77][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[62][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[58][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[65][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[6][15]_i_1_n_0   | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[71][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[72][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                8 |             16 |         2.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[76][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[59][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[64][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[90][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[83][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[95][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[97][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                7 |             16 |         2.29 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[9][15]_i_1_n_0   | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[7][15]_i_1_n_0   | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[81][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[82][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                5 |             16 |         3.20 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[91][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[93][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[84][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[88][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[86][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[87][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[96][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[99][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                9 |             16 |         1.78 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[92][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[98][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                6 |             16 |         2.67 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[89][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                4 |             16 |         4.00 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[80][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_data_ram/ram[85][15]_i_1_n_0  | u_cpu/u_data_ram/SR[0]            |                3 |             16 |         5.33 |
+|  CLK100MHZ_IBUF_BUFG | u_cpu/u_mmio/led[15]_i_1_n_0          | u_cpu/u_data_ram/SR[0]            |               18 |             32 |         1.78 |
+|  CLK100MHZ_IBUF_BUFG |                                       |                                   |               19 |             46 |         2.42 |
++----------------------+---------------------------------------+-----------------------------------+------------------+----------------+--------------+
+
+
