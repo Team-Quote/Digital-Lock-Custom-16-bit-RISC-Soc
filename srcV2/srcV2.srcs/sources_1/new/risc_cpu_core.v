@@ -32,15 +32,34 @@
 `define ADDR_SEG1 9'h03E
 `define ADDR_SEG0 9'h03F
 
+// -----------------------------------------------------------------------------
+// risc_cpu_core.v
+// -----------------------------------------------------------------------------
+// Main 16-bit RISC CPU core.
+//
+// This module contains the processor datapath and control logic:
+//   - Program counter
+//   - Instruction fetch from ROM
+//   - Instruction decode
+//   - 8 general-purpose registers, R0-R7
+//   - ALU operations
+//   - Z and N flags
+//   - Data RAM
+//   - Memory-mapped I/O
+//
+// The CPU executes one instruction whenever ce = 1. The board top module uses a
+// clock_enable module to make ce slower than the 100 MHz FPGA clock.
+// -----------------------------------------------------------------------------
+
 module risc_cpu_core(
-    input         clk,
-    input         reset,
-    input         ce,
-    input  [15:0] switches,
-    input  [4:0]  buttons,
-    output [15:0] led,
-    output [2:0]  rgb,
-    output [15:0] seg0,
+    input         clk,       // System clock
+    input         reset,     // Active-high synchronous reset
+    input         ce,        // CPU step enable; execute one instruction when 1
+    input  [15:0] switches,  // Synchronized board switches
+    input  [4:0]  buttons,   // Synchronized button word
+    output [15:0] led,       // LED output register from MMIO
+    output [2:0]  rgb,       // RGB output register from MMIO
+    output [15:0] seg0,      // Seven-seg digit registers from MMIO
     output [15:0] seg1,
     output [15:0] seg2,
     output [15:0] seg3,
@@ -48,25 +67,59 @@ module risc_cpu_core(
     output [15:0] seg5,
     output [15:0] seg6,
     output [15:0] seg7,
-    output reg    halted,
-    output [15:0] debug_pc,
-    output [15:0] debug_instr,
-    output        debug_z,
-    output        debug_n
+    output reg    halted,    // Goes high after HALT instruction
+    output [15:0] debug_pc,  // Debug: current program counter
+    output [15:0] debug_instr, // Debug: current instruction word
+    output        debug_z,   // Debug: zero flag
+    output        debug_n    // Debug: negative flag
 );
+    // -------------------------------------------------------------------------
+    // Program counter and instruction fetch
+    // -------------------------------------------------------------------------
     reg [15:0] pc;
     wire [15:0] instr;
 
-    wire [3:0] opcode;
-    wire [2:0] rd;
-    wire [2:0] rs;
-    wire [8:0] imm9;
+    instr_rom #(.ROM_DEPTH(1024)) u_rom(
+        .addr(pc),
+        .instr(instr)
+    );
+
+    // -------------------------------------------------------------------------
+    // Instruction field decode
+    // -------------------------------------------------------------------------
+    // 16-bit instruction layout:
+    //   [15:12] opcode
+    //   [11:9]  destination register, Rd
+    //   [8:6]   source register, Rs
+    //   [8:0]   9-bit immediate or load/store address
+    //   [11:0]  12-bit jump address
+    wire [3:0]  opcode;
+    wire [2:0]  rd;
+    wire [2:0]  rs;
+    wire [8:0]  imm9;
     wire [11:0] addr12;
 
+    assign opcode = instr[15:12];
+    assign rd     = instr[11:9];
+    assign rs     = instr[8:6];
+    assign imm9   = instr[8:0];
+    assign addr12 = instr[11:0];
+
+    // -------------------------------------------------------------------------
+    // Register file
+    // -------------------------------------------------------------------------
+    // Eight 16-bit registers. R0 is treated as constant zero by forcing reads to
+    // zero and preventing writes to R0 in the sequential block.
     reg [15:0] regs [0:7];
     wire [15:0] rd_val;
     wire [15:0] rs_val;
 
+    assign rd_val = (rd == 3'd0) ? 16'h0000 : regs[rd];
+    assign rs_val = (rs == 3'd0) ? 16'h0000 : regs[rs];
+
+    // -------------------------------------------------------------------------
+    // Data RAM and MMIO connection wires
+    // -------------------------------------------------------------------------
     wire [15:0] ram_rdata;
     wire [15:0] mmio_rdata;
     wire        mmio_hit;
@@ -75,32 +128,8 @@ module risc_cpu_core(
     wire        mmio_we;
     wire [15:0] load_data;
 
-    reg z_flag;
-    reg n_flag;
-    reg [15:0] next_pc;
-    reg        next_halted;
-    reg        reg_we;
-    reg [15:0] reg_wdata;
-    reg        flags_we;
-    reg [15:0] flags_value;
-
-    integer i;
-
-    instr_rom #(.ROM_DEPTH(1024)) u_rom(
-        .addr(pc),
-        .instr(instr)
-    );
-
-    assign opcode = instr[15:12];
-    assign rd     = instr[11:9];
-    assign rs     = instr[8:6];
-    assign imm9   = instr[8:0];
-    assign addr12 = instr[11:0];
-
-    // R0 is treated as a constant zero register.
-    assign rd_val = (rd == 3'd0) ? 16'h0000 : regs[rd];
-    assign rs_val = (rs == 3'd0) ? 16'h0000 : regs[rs];
-
+    // STORE writes either RAM or MMIO. The MMIO decoder decides whether imm9 is
+    // a peripheral address. Non-MMIO stores go to data RAM.
     assign store_instr = (opcode == `OP_ST) && !halted;
     assign ram_we      = ce && store_instr && !mmio_hit;
     assign mmio_we     = ce && store_instr &&  mmio_hit;
@@ -138,9 +167,33 @@ module risc_cpu_core(
         .seg7(seg7)
     );
 
+    // LOAD chooses MMIO data if the address hits a peripheral; otherwise it
+    // returns data RAM contents.
     assign load_data = mmio_hit ? mmio_rdata : ram_rdata;
 
+    // -------------------------------------------------------------------------
+    // Flags and next-state control signals
+    // -------------------------------------------------------------------------
+    reg z_flag;              // Zero flag: last ALU/compare result was zero
+    reg n_flag;              // Negative flag: result MSB was 1
+
+    reg [15:0] next_pc;      // Next program counter value
+    reg        next_halted;  // Next halted state
+    reg        reg_we;       // Register write enable
+    reg [15:0] reg_wdata;    // Register write data
+    reg        flags_we;     // Flag write enable
+    reg [15:0] flags_value;  // Value used to update Z/N flags
+
+    integer i;
+
+    // -------------------------------------------------------------------------
+    // Combinational instruction execute/decode logic
+    // -------------------------------------------------------------------------
+    // This block computes what should happen on the next enabled clock edge.
+    // Actual state updates happen in the sequential always block below.
     always @(*) begin
+        // Default behavior: advance to the next instruction and do not write
+        // registers or flags unless the opcode requests it.
         next_pc     = pc + 16'h0001;
         next_halted = halted;
         reg_we      = 1'b0;
@@ -150,6 +203,7 @@ module risc_cpu_core(
 
         case (opcode)
             `OP_LDI: begin
+                // Load 9-bit immediate into Rd, zero-extended to 16 bits.
                 reg_we      = 1'b1;
                 reg_wdata   = {7'b0000000, imm9};
                 flags_we    = 1'b1;
@@ -157,6 +211,7 @@ module risc_cpu_core(
             end
 
             `OP_LD: begin
+                // Load from data RAM or MMIO into Rd.
                 reg_we      = 1'b1;
                 reg_wdata   = load_data;
                 flags_we    = 1'b1;
@@ -164,7 +219,8 @@ module risc_cpu_core(
             end
 
             `OP_ST: begin
-                // Store side effect occurs in data_ram or mmio on this clock edge.
+                // Store side effect occurs in data_ram or mmio on this clock
+                // edge through ram_we/mmio_we. No register writeback needed.
             end
 
             `OP_ADD: begin
@@ -196,11 +252,13 @@ module risc_cpu_core(
             end
 
             `OP_CMP: begin
+                // Compare sets flags from Rd - Rs but discards the result.
                 flags_we    = 1'b1;
                 flags_value = rd_val - rs_val;
             end
 
             `OP_JMP: begin
+                // Jump uses the lower 12 bits of the instruction as address.
                 next_pc = {4'b0000, addr12};
             end
 
@@ -223,10 +281,11 @@ module risc_cpu_core(
             end
 
             `OP_NOP: begin
-                // Intentional no operation.
+                // No operation. PC still advances by default.
             end
 
             `OP_HALT: begin
+                // Freeze CPU until reset.
                 next_halted = 1'b1;
                 next_pc     = pc;
             end
@@ -239,6 +298,7 @@ module risc_cpu_core(
             end
 
             `OP_PASS: begin
+                // Passthrough operation used by the Logisim-derived ISA.
                 reg_we      = 1'b1;
                 reg_wdata   = rs_val;
                 flags_we    = 1'b1;
@@ -246,17 +306,22 @@ module risc_cpu_core(
             end
 
             default: begin
-                // Undefined opcodes act as NOP.
+                // Undefined opcodes act like NOP for safety.
             end
         endcase
     end
 
+    // -------------------------------------------------------------------------
+    // Sequential state update
+    // -------------------------------------------------------------------------
+    // On each enabled CPU cycle, commit the combinational results above.
     always @(posedge clk) begin
         if (reset) begin
             pc      <= 16'h0000;
             halted  <= 1'b0;
             z_flag  <= 1'b0;
             n_flag  <= 1'b0;
+
             for (i = 0; i < 8; i = i + 1) begin
                 regs[i] <= 16'h0000;
             end
@@ -264,6 +329,7 @@ module risc_cpu_core(
             pc     <= next_pc;
             halted <= next_halted;
 
+            // R0 is protected from writes so it remains a zero constant.
             if (reg_we && rd != 3'd0) begin
                 regs[rd] <= reg_wdata;
             end
@@ -276,6 +342,7 @@ module risc_cpu_core(
         end
     end
 
+    // Debug outputs for waveforms and testbenches.
     assign debug_pc    = pc;
     assign debug_instr = instr;
     assign debug_z     = z_flag;

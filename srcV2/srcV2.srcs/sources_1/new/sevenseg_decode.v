@@ -1,41 +1,39 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 05/04/2026 02:23:21 PM
-// Design Name: 
-// Module Name: sevenseg_decode
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
+// -----------------------------------------------------------------------------
+// sevenseg_decode.v
+// -----------------------------------------------------------------------------
+// Converts a 16-bit display code from the CPU/MMIO register into active-high
+// seven-segment data.
+//
+// Segment bit order used here:
+//     seg_active_high = {A, B, C, D, E, F, G}
+//
+// The Nexys A7 display pins are active-low, so sevenseg_scan.v inverts this
+// active-high value before driving CA-CG.
+//
+// Why the input is 16 bits:
+//   The ROM/program writes full display codes such as 0x0080 for blank,
+//   0x0040 for dash, and 0x00FF for all segments on. If we only used the low
+//   nibble, those special display values would be displayed incorrectly.
+// -----------------------------------------------------------------------------
 
 module sevenseg_decode(
-    input  [15:0] code,
-    output reg [6:0] seg_active_high
+    input  [15:0] code,             // Display code written by the CPU
+    output reg [6:0] seg_active_high // Active-high {A,B,C,D,E,F,G}
 );
     always @(*) begin
         case (code)
-            // Special display codes used by the .circ / ROM program.
-            16'h0080: seg_active_high = 7'b0000000; // blank/off
-            16'h0040: seg_active_high = 7'b0000001; // dash
-            16'h00FF: seg_active_high = 7'b1111111; // all segments on
+            // Special display codes used by the ROM/program.
+            16'h0080: seg_active_high = 7'b0000000; // Blank/off
+            16'h0040: seg_active_high = 7'b0000001; // Dash: segment G only
+            16'h00FF: seg_active_high = 7'b1111111; // All segments on
 
-            // Letter-ish codes used by the ROM.
-            16'h0067: seg_active_high = 7'b1100111; // P
-            16'h0047: seg_active_high = 7'b1000111; // F
+            // Letter-like display codes used by the PASS/FAIL program states.
+            16'h0067: seg_active_high = 7'b1100111; // P approximation
+            16'h0047: seg_active_high = 7'b1000111; // F approximation
 
             default: begin
+                // Otherwise, display the low nibble as a hexadecimal digit.
                 case (code[3:0])
                     4'h0: seg_active_high = 7'b1111110;
                     4'h1: seg_active_high = 7'b0110000;
