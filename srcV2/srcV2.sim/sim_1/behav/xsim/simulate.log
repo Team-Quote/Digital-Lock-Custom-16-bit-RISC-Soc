@@ -1,0 +1,14 @@
+Time resolution is 1 ps
+
+--- Starting tb_clock_enable ---
+PASS reset forced ce=0
+PASS cycle=0 ce=0
+PASS cycle=1 ce=0
+PASS cycle=2 ce=0
+PASS cycle=3 ce=1
+PASS cycle=4 ce=0
+PASS cycle=5 ce=0
+PASS cycle=6 ce=0
+PASS cycle=7 ce=1
+tb_clock_enable PASSED
+$finish called at time : 96 ns : File "C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sim_1/new/tb_clock_enable.v" Line 98

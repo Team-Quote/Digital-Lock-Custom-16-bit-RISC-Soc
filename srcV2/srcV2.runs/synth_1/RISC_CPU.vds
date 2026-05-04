@@ -3,8 +3,8 @@
 # SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
 # IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
 # SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
-# Start of session at: Mon May  4 14:29:09 2026
-# Process ID         : 14716
+# Start of session at: Mon May  4 15:00:39 2026
+# Process ID         : 28012
 # Current directory  : C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.runs/synth_1
 # Command line       : vivado.exe -log RISC_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RISC_CPU.tcl
 # Log file           : C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.runs/synth_1/RISC_CPU.vds
@@ -17,66 +17,93 @@
 # CPU Physical cores : 8
 # CPU Logical cores  : 16
 # Host memory        : 15748 MB
-# Swap memory        : 6842 MB
-# Total Virtual      : 22591 MB
-# Available Virtual  : 4523 MB
+# Swap memory        : 6442 MB
+# Total Virtual      : 22190 MB
+# Available Virtual  : 5459 MB
 #-----------------------------------------------------------
 source RISC_CPU.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental {C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/utils_1/imports/synth_1/RISC_CPU.dcp}
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/utils_1/imports/synth_1/RISC_CPU.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top RISC_CPU -part xc7a100tcsg324-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 14028
+INFO: [Synth 8-7075] Helper process launched with PID 20568
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1062.605 ; gain = 468.777
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1068.098 ; gain = 471.828
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'RISC_CPU' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/RISC_CPU_top.v:3]
-INFO: [Synth 8-6157] synthesizing module 'sync_2ff' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sync_2ff.v:3]
+WARNING: [Synth 8-10940] macro 'OP_LDI' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:4]
+WARNING: [Synth 8-10940] macro 'OP_LD' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:5]
+WARNING: [Synth 8-10940] macro 'OP_ST' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:6]
+WARNING: [Synth 8-10940] macro 'OP_ADD' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:7]
+WARNING: [Synth 8-10940] macro 'OP_SUB' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:8]
+WARNING: [Synth 8-10940] macro 'OP_AND' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:9]
+WARNING: [Synth 8-10940] macro 'OP_OR' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:10]
+WARNING: [Synth 8-10940] macro 'OP_CMP' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:11]
+WARNING: [Synth 8-10940] macro 'OP_JMP' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:12]
+WARNING: [Synth 8-10940] macro 'OP_JZ' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:13]
+WARNING: [Synth 8-10940] macro 'OP_JNZ' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:14]
+WARNING: [Synth 8-10940] macro 'OP_JN' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:15]
+WARNING: [Synth 8-10940] macro 'OP_NOP' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:16]
+WARNING: [Synth 8-10940] macro 'OP_HALT' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:17]
+WARNING: [Synth 8-10940] macro 'OP_XOR' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:18]
+WARNING: [Synth 8-10940] macro 'OP_PASS' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:19]
+WARNING: [Synth 8-10940] macro 'ADDR_BT' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:22]
+WARNING: [Synth 8-10940] macro 'ADDR_SW' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:23]
+WARNING: [Synth 8-10940] macro 'ADDR_LED' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:24]
+WARNING: [Synth 8-10940] macro 'ADDR_RGB' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:25]
+WARNING: [Synth 8-10940] macro 'ADDR_SEG7' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:26]
+WARNING: [Synth 8-10940] macro 'ADDR_SEG0' is redefined [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:33]
+INFO: [Synth 8-6157] synthesizing module 'RISC_CPU' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/RISC_CPU_top.v:20]
+INFO: [Synth 8-6157] synthesizing module 'sync_2ff' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sync_2ff.v:16]
 	Parameter WIDTH bound to: 16 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'sync_2ff' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sync_2ff.v:3]
-INFO: [Synth 8-6157] synthesizing module 'sync_2ff__parameterized0' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sync_2ff.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'sync_2ff' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sync_2ff.v:16]
+INFO: [Synth 8-6157] synthesizing module 'sync_2ff__parameterized0' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sync_2ff.v:16]
 	Parameter WIDTH bound to: 5 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'sync_2ff__parameterized0' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sync_2ff.v:3]
-INFO: [Synth 8-6157] synthesizing module 'clock_enable' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/clock_enable.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'sync_2ff__parameterized0' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sync_2ff.v:16]
+INFO: [Synth 8-6157] synthesizing module 'clock_enable' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/clock_enable.v:16]
 	Parameter DIVISOR bound to: 50000 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'clock_enable' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/clock_enable.v:3]
-INFO: [Synth 8-6157] synthesizing module 'risc_cpu_core' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:35]
-INFO: [Synth 8-6157] synthesizing module 'instr_rom' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/instr_rom.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'clock_enable' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/clock_enable.v:16]
+INFO: [Synth 8-6157] synthesizing module 'risc_cpu_core' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:54]
+INFO: [Synth 8-6157] synthesizing module 'instr_rom' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/instr_rom.v:17]
 	Parameter ROM_DEPTH bound to: 1024 - type: integer 
-INFO: [Synth 8-3876] $readmem data file 'program.mem' is read successfully [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/instr_rom.v:14]
-INFO: [Synth 8-6155] done synthesizing module 'instr_rom' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/instr_rom.v:3]
-INFO: [Synth 8-6157] synthesizing module 'data_ram' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/data_ram.v:3]
+INFO: [Synth 8-3876] $readmem data file 'program.mem' is read successfully [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/instr_rom.v:34]
+INFO: [Synth 8-6155] done synthesizing module 'instr_rom' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/instr_rom.v:17]
+INFO: [Synth 8-6157] synthesizing module 'data_ram' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/data_ram.v:18]
 	Parameter ADDR_WIDTH bound to: 8 - type: integer 
 	Parameter DATA_WIDTH bound to: 16 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'data_ram' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/data_ram.v:3]
-INFO: [Synth 8-6157] synthesizing module 'mmio' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/mmio.v:54]
-INFO: [Synth 8-6155] done synthesizing module 'mmio' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/mmio.v:54]
-INFO: [Synth 8-226] default block is never used [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:151]
-INFO: [Synth 8-6155] done synthesizing module 'risc_cpu_core' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:35]
-INFO: [Synth 8-6157] synthesizing module 'sevenseg_scan' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sevenseg_scan.v:3]
-INFO: [Synth 8-226] default block is never used [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sevenseg_scan.v:41]
-INFO: [Synth 8-6157] synthesizing module 'sevenseg_decode' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sevenseg_decode.v:23]
-INFO: [Synth 8-226] default block is never used [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sevenseg_decode.v:39]
-INFO: [Synth 8-6155] done synthesizing module 'sevenseg_decode' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sevenseg_decode.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'sevenseg_scan' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sevenseg_scan.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'RISC_CPU' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/RISC_CPU_top.v:3]
-WARNING: [Synth 8-6014] Unused sequential element regs_reg[0] was removed.  [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:101]
+INFO: [Synth 8-6155] done synthesizing module 'data_ram' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/data_ram.v:18]
+INFO: [Synth 8-6157] synthesizing module 'mmio' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/mmio.v:65]
+INFO: [Synth 8-6155] done synthesizing module 'mmio' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/mmio.v:65]
+INFO: [Synth 8-226] default block is never used [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:204]
+INFO: [Synth 8-6155] done synthesizing module 'risc_cpu_core' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:54]
+INFO: [Synth 8-6157] synthesizing module 'sevenseg_scan' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sevenseg_scan.v:16]
+INFO: [Synth 8-226] default block is never used [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sevenseg_scan.v:62]
+INFO: [Synth 8-6157] synthesizing module 'sevenseg_decode' [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sevenseg_decode.v:20]
+INFO: [Synth 8-226] default block is never used [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sevenseg_decode.v:37]
+INFO: [Synth 8-6155] done synthesizing module 'sevenseg_decode' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sevenseg_decode.v:20]
+INFO: [Synth 8-6155] done synthesizing module 'sevenseg_scan' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/sevenseg_scan.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'RISC_CPU' (0#1) [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/RISC_CPU_top.v:20]
+WARNING: [Synth 8-6014] Unused sequential element regs_reg[0] was removed.  [C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.srcs/sources_1/new/risc_cpu_core.v:117]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1193.113 ; gain = 599.285
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 1197.566 ; gain = 601.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1193.113 ; gain = 599.285
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1197.566 ; gain = 601.297
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1193.113 ; gain = 599.285
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1197.566 ; gain = 601.297
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.071 . Memory (MB): peak = 1193.113 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.058 . Memory (MB): peak = 1197.566 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -87,29 +114,31 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/RISC_CPU_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1282.625 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1286.004 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.054 . Memory (MB): peak = 1282.625 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 1286.004 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1282.625 ; gain = 688.797
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1286.004 ; gain = 689.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1282.625 ; gain = 688.797
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1286.004 ; gain = 689.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1282.625 ; gain = 688.797
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1286.004 ; gain = 689.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1282.625 ; gain = 688.797
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1286.004 ; gain = 689.734
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -151,7 +180,7 @@ Start Cross Boundary and Area Optimization
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 WARNING: [Synth 8-3917] design RISC_CPU has port DP driven by constant 1
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:02 ; elapsed = 00:01:08 . Memory (MB): peak = 1329.648 ; gain = 735.820
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 1328.664 ; gain = 732.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -172,19 +201,19 @@ Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:10 ; elapsed = 00:01:16 . Memory (MB): peak = 1388.664 ; gain = 794.836
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:55 ; elapsed = 00:00:59 . Memory (MB): peak = 1388.855 ; gain = 792.586
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:27 ; elapsed = 00:01:33 . Memory (MB): peak = 1524.223 ; gain = 930.395
+Finished Timing Optimization : Time (s): cpu = 00:01:09 ; elapsed = 00:01:13 . Memory (MB): peak = 1523.289 ; gain = 927.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:33 ; elapsed = 00:01:39 . Memory (MB): peak = 1524.273 ; gain = 930.445
+Finished Technology Mapping : Time (s): cpu = 00:01:13 ; elapsed = 00:01:17 . Memory (MB): peak = 1523.344 ; gain = 927.074
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -202,37 +231,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:40 ; elapsed = 00:01:47 . Memory (MB): peak = 1658.500 ; gain = 1064.672
+Finished IO Insertion : Time (s): cpu = 00:01:18 ; elapsed = 00:01:23 . Memory (MB): peak = 1657.602 ; gain = 1061.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:40 ; elapsed = 00:01:47 . Memory (MB): peak = 1658.500 ; gain = 1064.672
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:18 ; elapsed = 00:01:23 . Memory (MB): peak = 1657.602 ; gain = 1061.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:41 ; elapsed = 00:01:48 . Memory (MB): peak = 1658.500 ; gain = 1064.672
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:19 ; elapsed = 00:01:24 . Memory (MB): peak = 1657.602 ; gain = 1061.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:41 ; elapsed = 00:01:48 . Memory (MB): peak = 1658.500 ; gain = 1064.672
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:19 ; elapsed = 00:01:24 . Memory (MB): peak = 1657.602 ; gain = 1061.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:41 ; elapsed = 00:01:48 . Memory (MB): peak = 1658.500 ; gain = 1064.672
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:19 ; elapsed = 00:01:24 . Memory (MB): peak = 1657.602 ; gain = 1061.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:41 ; elapsed = 00:01:48 . Memory (MB): peak = 1658.500 ; gain = 1064.672
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:19 ; elapsed = 00:01:24 . Memory (MB): peak = 1657.602 ; gain = 1061.332
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -263,28 +292,28 @@ Report Cell Usage:
 |13    |OBUF   |    35|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:41 ; elapsed = 00:01:48 . Memory (MB): peak = 1658.500 ; gain = 1064.672
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:19 ; elapsed = 00:01:24 . Memory (MB): peak = 1657.602 ; gain = 1061.332
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:24 ; elapsed = 00:01:44 . Memory (MB): peak = 1658.500 ; gain = 975.160
-Synthesis Optimization Complete : Time (s): cpu = 00:01:41 ; elapsed = 00:01:49 . Memory (MB): peak = 1658.500 ; gain = 1064.672
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:06 ; elapsed = 00:01:21 . Memory (MB): peak = 1657.602 ; gain = 972.895
+Synthesis Optimization Complete : Time (s): cpu = 00:01:20 ; elapsed = 00:01:24 . Memory (MB): peak = 1657.602 ; gain = 1061.332
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.075 . Memory (MB): peak = 1670.680 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 1669.762 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 850 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 WARNING: [Netlist 29-101] Netlist 'RISC_CPU' is not ideal for floorplanning, since the cellview 'data_ram' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1674.387 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1673.430 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 Synth Design complete | Checksum: a832d8d8
 INFO: [Common 17-83] Releasing license: Synthesis
-39 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
+45 Infos, 26 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:49 ; elapsed = 00:02:00 . Memory (MB): peak = 1674.387 ; gain = 1284.473
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1674.387 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:26 ; elapsed = 00:01:34 . Memory (MB): peak = 1673.430 ; gain = 1280.586
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1673.430 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Final Project/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.runs/synth_1/RISC_CPU.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file RISC_CPU_utilization_synth.rpt -pb RISC_CPU_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon May  4 14:31:18 2026...
+INFO: [Common 17-206] Exiting Vivado at Mon May  4 15:02:21 2026...
