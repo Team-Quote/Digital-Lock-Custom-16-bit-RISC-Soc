@@ -10,8 +10,8 @@
 // creating extra clock domains.
 //
 // Example for the Nexys A7:
-//   clk = 100 MHz, DIVISOR = 50000
-//   ce pulses at 100,000,000 / 50,000 = 2,000 pulses per second
+//   clk = 100 MHz, DIVISOR = 500000
+//   ce pulses at 100,000,000 / 50,0000 = 200 pulses per second
 
 module clock_enable #(parameter DIVISOR = 500000)(
     input  clk,        // Source clock, normally 100 MHz on Nexys A7

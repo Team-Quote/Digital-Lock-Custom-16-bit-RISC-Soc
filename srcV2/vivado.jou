@@ -1,0 +1,38 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Tue May  5 15:32:11 2026
+# Process ID         : 6520
+# Current directory  : C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent19688 C:\Users\jjnat\Vault 451\Quote\Projects\Digital Design Techniques and Verification\Digital-Lock-Custom-16-bit-RISC-Soc\srcV2\srcV2.xpr
+# Log file           : C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/vivado.log
+# Journal file       : C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2\vivado.jou
+# Running On         : Thinkpad
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26200
+# Processor Detail   : AMD Ryzen 7 PRO 8840U w/ Radeon 780M Graphics  
+# CPU Frequency      : 3294 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 15748 MB
+# Swap memory        : 5905 MB
+# Total Virtual      : 21653 MB
+# Available Virtual  : 11425 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.xpr}
+update_compile_order -fileset sources_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.runs/impl_1/RISC_CPU.bit} [get_hw_devices xc7a100t_0]
+current_hw_device [get_hw_devices xc7a100t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+set_property PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a100t_0]
+set_property PROGRAM.FILE {C:/Users/jjnat/Vault 451/Quote/Projects/Digital Design Techniques and Verification/Digital-Lock-Custom-16-bit-RISC-Soc/srcV2/srcV2.runs/impl_1/RISC_CPU.bit} [get_hw_devices xc7a100t_0]
+program_hw_devices [get_hw_devices xc7a100t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]

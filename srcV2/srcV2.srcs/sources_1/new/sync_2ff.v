@@ -7,6 +7,7 @@
 //
 // Physical inputs such as push buttons and switches are asynchronous relative
 // to the FPGA clock. Sampling them directly can cause metastability. Passing
+// In other words we needed to debounce.
 // them through two flip-flops greatly reduces that risk before the CPU reads
 // them through MMIO.
 //
