@@ -4,7 +4,7 @@ A FPGA-based digital lock system implemented using a custom 16-bit RISC processo
 
 ## Project Overview
 
-This project implements a secure digital lock system that runs on a custom-built 16-bit RISC processor. The system allows users to enter a code using switches, submit it with a button, and receive feedback through LEDs, a seven-segment display, and a VGA status screen.
+This project implements a secure digital lock system that runs on a custom-built 16-bit RISC processor. The system allows users to enter a code using switches, submit it with a button, and receive feedback through LEDs, and a seven-segment display. 
 
 ### Key Features
 
@@ -15,7 +15,6 @@ This project implements a secure digital lock system that runs on a custom-built
   - Buttons for submit/reset operations
   - 16 LEDs for status indication
   - Four-digit seven-segment display for attempt counters
-  - VGA display for detailed status messages
 - **Security Features**:
   - Password verification
   - Failed attempt tracking
@@ -24,12 +23,12 @@ This project implements a secure digital lock system that runs on a custom-built
 ### System Behavior
 
 1. **Boot State**: System starts in LOCKED mode
-2. **Code Entry**: User enters 4-bit or 8-bit code using switches
+2. **Code Entry**: User enters 4-bit code using buttons
 3. **Submission**: Press submit button to check code
 4. **Verification**:
-   - **Correct Code**: VGA shows "ACCESS GRANTED", green LED pattern
-   - **Incorrect Code**: VGA shows "ACCESS DENIED", failed attempt counter increments
-5. **Lockout**: After 3 failed attempts, system enters lockout mode
+   - **Correct Code**: green RGB LED pattern and seven-seg display update
+   - **Incorrect Code**: failed attempt counter increments on the seven-seg display
+5. **Lockout**: After 3 failed attempts, system enters lockout mode and requires CPU reset
 
 ## Project Structure
 
@@ -46,6 +45,22 @@ This project implements a secure digital lock system that runs on a custom-built
     └── src.srcs/        # Source files
         ├── constrs_1/   # Constraints
         └── sources_1/   # HDL source code
+└── srcV2/               # Current Vivado project files
+    ├── srcV2.xpr
+    ├── vivado.jou
+    ├── srcV2.srcs/
+    │   ├── constrs_1/
+    │   └── sources_1/
+    │       └── new/
+    │           ├── RISC_CPU_top.v
+    │           ├── risc_cpu_core.v
+    │           ├── mmio.v
+    │           ├── instr_rom.v
+    │           ├── data_ram.v
+    │           ├── sevenseg_scan.v
+    │           ├── sevenseg_decode.v
+    │           ├── sync_2ff.v
+    │           └── clock_enable.v
 ```
 
 ## Hardware Requirements
@@ -88,10 +103,11 @@ This is a work-in-progress project. Current progress includes:
 
 - ✅ Project setup and basic structure
 - ✅ Seven-segment display module (framework)
-- 🔄 CPU architecture design (in progress)
-- 🔄 Memory map definition (planned)
-- 🔄 VGA controller (planned)
-- 🔄 Complete system integration (planned)
+- ✅ CPU architecture design 
+  ✅ Top-level board integration
+  ✅ 16-bit RISC CPU core
+  ✅ Memory-mapped I/O for switches/buttons/LEDs/seven-seg/RGB
+- ✅ Complete system integration 
 
 ## Development Roadmap
 
